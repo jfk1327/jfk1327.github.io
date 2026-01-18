@@ -11,13 +11,13 @@
       --bg: #0b1220;
       --panel: rgba(255,255,255,.06);
       --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
+      --muted: rgba(255,255,255,.72);
       --line: rgba(255,255,255,.12);
       --accent: #7dd3fc;    /* light blue */
       --accent2:#a78bfa;    /* purple */
       --shadow: 0 10px 30px rgba(0,0,0,.35);
       --radius: 16px;
-      --maxw: 960px;
+      --maxw: 980px;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     }
@@ -44,60 +44,66 @@
     }
 
     header{
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      padding: 28px 22px;
+      padding: 30px 24px;
       border: 1px solid var(--line);
       background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
-    .toprow{
-      display: flex;
-      flex-wrap: wrap;
+    /* New hero layout: text left, photo right */
+    .hero{
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 22px;
       align-items: center;
-      justify-content: space-between;
-      gap: 14px;
     }
 
-    .brand{
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 240px;
+    .hero-text{
+      text-align: center;
     }
-
-    .avatar{
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  object-fit: cover;
-  border: 1px solid rgba(255,255,255,.18);
-  box-shadow: 0 8px 18px rgba(0,0,0,.25);
-  flex: 0 0 auto;
-}
-
 
     h1{
       margin: 0;
-      font-size: 22px;
+      font-size: 34px;
       letter-spacing: .2px;
-      line-height: 1.2;
+      line-height: 1.15;
     }
 
     .subtitle{
-      margin: 2px 0 0;
+      margin: 10px 0 0;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.3;
+      font-size: 15px;
+      line-height: 1.35;
     }
 
+    .intro{
+      margin: 14px auto 0;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.65;
+      max-width: 78ch;
+    }
+
+    /* Bigger photo on the right */
+    .avatar{
+      width: 180px;
+      height: 180px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 14px 35px rgba(0,0,0,.42);
+      justify-self: end;
+      background: rgba(255,255,255,.04);
+    }
+
+    /* Nav centered under hero */
     nav{
+      margin-top: 18px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      justify-content: center;
     }
 
     .chip{
@@ -118,14 +124,6 @@
       background: rgba(255,255,255,.07);
       border-color: rgba(255,255,255,.22);
       transform: translateY(-1px);
-    }
-
-    .intro{
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.55;
-      max-width: 78ch;
     }
 
     main{
@@ -245,43 +243,53 @@
       main{ gap: 18px; }
       .card{ grid-column: span 6; }
     }
+
+    /* Mobile: stack image above text and keep things centered */
+    @media (max-width: 720px){
+      .hero{
+        grid-template-columns: 1fr;
+      }
+      .avatar{
+        justify-self: center;
+        width: 160px;
+        height: 160px;
+      }
+      h1{
+        font-size: 28px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
     <header>
-      <div class="toprow">
-        <div class="brand">
-          <img class="avatar" src="assets/IMG-20251124-WA0016~2.jpg" alt="Photo of James Finbarr Kelly" />
-          <div>
-            <h1>James Finbarr Kelly</h1>
-            <p class="subtitle">
-              AI Applications • Biomedical AI • NLP • R / Python
-            </p>
-          </div>
+      <div class="hero">
+        <div class="hero-text">
+          <h1>James Finbarr Kelly</h1>
+          <p class="subtitle">AI Applications • Biomedical AI • NLP • R / Python</p>
+
+          <p class="intro">
+            Hello! My name is James Finbarr Kelly, an AI scientist from Ireland. I am currently completing an MSc in Artificial Intelligence at the University of Edinburgh.
+            I’m focusing on NLP and Computer Vision applications in biomedical AI. I previously worked in the Central Statistics Office of Ireland where I led the development of a human-in-the-loop text classification pipeline to support coding of death
+            certificates for the Vital Statistics Division (medical text / ICD-style classification).
+          </p>
         </div>
 
-        <nav aria-label="Site links">
-          <a class="chip" href="https://github.com/jfk1327" target="_blank" rel="noopener">GitHub</a>
-          <a class="chip" href="https://www.linkedin.com/in/james-kelly-60063a248/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="chip" href="mailto:james.kelly1327@gmail.com">Email</a>
-      
-        </nav>
+        <img class="avatar" src="assets/IMG-20251124-WA0016~2.jpg" alt="Photo of James Finbarr Kelly" />
       </div>
 
-      <p class="intro">
-        Hello! My name is James Finbarr Kelly, an AI scientist from Ireland. I am currently completing an MSc in Artificial Intelligence at the University of Edinburgh.
-        I’m focusing on NLP and Computer Vision applications in biomedical AI. I previously worked in the Central Statistics Office of Ireland where I lead the development of a human-in-the-loop text classification pipeline to support coding of death
-certificates for the Vital Statistics Division (medical text / ICD-style classification). 
-      </p>
+      <nav aria-label="Site links">
+        <a class="chip" href="https://github.com/jfk1327" target="_blank" rel="noopener">GitHub</a>
+        <a class="chip" href="https://www.linkedin.com/in/james-kelly-60063a248/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="chip" href="mailto:james.kelly1327@gmail.com">Email</a>
+      </nav>
     </header>
 
     <main>
       <h2 class="section-title">Featured Projects</h2>
 
       <div class="grid">
-        <!-- Project 1: Text Guide (folder already exists) -->
         <section class="card">
           <div class="card-body">
             <h3>Text Classification Guide in R</h3>
@@ -296,13 +304,11 @@ certificates for the Vital Statistics Division (medical text / ICD-style classif
               preprocessing, modeling choices, and evaluation.
             </p>
             <div class="actions">
-              <!-- Make sure this folder name matches your repo folder exactly -->
               <a class="btn primary" href="./text-classification-guide-in-r/">Open the guide</a>
             </div>
           </div>
         </section>
 
-        <!-- Project 2: Shiny app URL -->
         <section class="card">
           <div class="card-body">
             <h3>Ukraine Dashboard (Shiny App)</h3>
