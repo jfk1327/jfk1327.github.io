@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Graduate Poster | James Finbarr Kelly</title>
+  <meta name="description" content="Poster PDF view for James Finbarr Kelly's portfolio." />
+
+  <style>
+    :root{
+      --bg0: #070b14;
+      --bg1: #0b1220;
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 14px 38px rgba(0,0,0,.40);
+      --radius: 18px;
+      --maxw: 980px;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(125,211,252,.18), transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, rgba(167,139,250,.16), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+    }
+
+    .container{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px 18px 50px;
+    }
+
+    .panel{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    h1{ margin: 0 0 8px; font-size: 22px; letter-spacing: .2px; }
+    p{ margin: 0 0 14px; color: var(--muted); line-height: 1.6; }
+
+    .toplinks{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+
+    a.btn{
+      display: inline-block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.92);
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    a.btn:hover{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.25);
+    }
+
+    .viewer{
+      width: 100%;
+      height: min(82vh, 980px);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,.02);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="panel">
+      <h1>Graduate Poster</h1>
+      <p>
+        Detailed view of my poster (PDF). Use the embedded viewer below or open/download the file directly.
+      </p>
+
+      <div class="toplinks">
+        <a class="btn" href="/index.html">← Back to portfolio</a>
+        <a class="btn" href="/assets/james_kelly_graduate_poster_final_v2.pdf" target="_blank" rel="noopener">
+          Open PDF in new tab
+        </a>
+        <a class="btn" href="/assets/james_kelly_graduate_poster_final_v2.pdf" download>
+          Download PDF
+        </a>
+      </div>
+
+      <iframe
+        class="viewer"
+        src="/assets/james_kelly_graduate_poster_final_v2.pdf"
+        title="Graduate Poster PDF"
+      ></iframe>
+    </div>
+  </div>
+</body>
+</html>
